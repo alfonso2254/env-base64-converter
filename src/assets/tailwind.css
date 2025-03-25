@@ -4,26 +4,80 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-150;
+    @apply px-4 py-2 rounded-md font-medium focus:outline-none focus:ring-2 focus:ring-offset-2 transition duration-150 dark:ring-offset-dark-200;
   }
   
   .btn-primary {
-    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500;
+    @apply bg-primary-600 text-white hover:bg-primary-700 focus:ring-primary-500 dark:bg-primary-500 dark:hover:bg-primary-600;
   }
   
   .btn-secondary {
-    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400;
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 focus:ring-gray-400 dark:bg-dark-300 dark:text-gray-100 dark:hover:bg-dark-400;
   }
   
   .card {
-    @apply bg-white rounded-lg shadow-md p-6;
+    @apply bg-white rounded-lg shadow-md p-6 dark:bg-dark-200 dark:border dark:border-dark-300;
   }
   
   .input {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-dark-200 dark:border-dark-300 dark:text-gray-100 dark:focus:border-primary-400;
   }
   
   .textarea {
-    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500;
+    @apply block w-full rounded-md border-gray-300 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:bg-dark-200 dark:border-dark-300 dark:text-gray-100 dark:focus:border-primary-400 font-mono text-sm;
+  }
+  
+  .dropzone {
+    @apply p-3 border-2 border-dashed border-gray-300 rounded-xl transition-all duration-300 hover:border-primary-400 dark:border-dark-400 dark:hover:border-primary-400;
+  }
+  
+  .dropzone.active {
+    @apply border-primary-500 bg-primary-50/10 dark:bg-primary-900/10;
+  }
+  
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-dark-300 dark:text-gray-200;
+  }
+  
+  .feature-card {
+    @apply p-5 rounded-xl bg-gray-50 dark:bg-dark-300 transition-all duration-300 hover:shadow-md border border-gray-100 dark:border-dark-400;
+  }
+  
+  .glassmorphic {
+    @apply backdrop-blur-md bg-white/70 dark:bg-dark-200/70 border border-white/20 dark:border-dark-300/50 shadow-lg;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-500 via-accent-secondary to-accent-tertiary;
+  }
+  
+  .tooltip {
+    @apply absolute z-10 p-2 text-xs bg-gray-900 text-white rounded shadow-lg dark:bg-dark-100;
+  }
+  
+  .kbd {
+    @apply bg-gray-100 border border-gray-300 rounded px-1.5 py-0.5 text-xs font-mono dark:bg-dark-300 dark:border-dark-400 dark:text-gray-200;
+  }
+  
+  .action-bar {
+    @apply p-2 bg-gray-50 dark:bg-dark-300 rounded-xl shadow-sm mb-3;
+  }
+  
+  .code-block {
+    @apply font-mono text-sm bg-gray-50 dark:bg-dark-300 p-3 rounded-lg overflow-x-auto border border-gray-200 dark:border-dark-400;
+  }
+}
+
+@layer utilities {
+  .animated-bg {
+    @apply bg-gradient-to-r from-primary-500 via-accent-secondary to-accent-tertiary bg-[length:200%_auto] animate-gradient;
+  }
+  
+  .shadow-neon {
+    @apply shadow-[0_0_15px_rgba(59,130,246,0.5)];
+  }
+  
+  .dark .shadow-neon {
+    @apply shadow-[0_0_20px_rgba(59,130,246,0.3)];
   }
 }

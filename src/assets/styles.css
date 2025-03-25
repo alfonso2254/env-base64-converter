@@ -1,15 +1,35 @@
 :root {
-  --primary-color: #3f51b5;
-  --secondary-color: #f50057;
-  --success-color: #4caf50;
-  --info-color: #2196f3;
-  --warning-color: #ff9800;
-  --error-color: #f44336;
-  --background-color: #f5f7fa;
+  /* Tema claro */
+  --primary-color: #3b82f6;
+  --primary-color-dark: #2563eb;
+  --secondary-color: #8b5cf6;
+  --success-color: #10b981;
+  --info-color: #3b82f6;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  --background-color: #f8fafc;
   --card-background: #ffffff;
-  --text-color: #333333;
-  --text-secondary: #666666;
-  --border-color: #e0e0e0;
+  --text-color: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --code-background: #f1f5f9;
+}
+
+:root.dark-theme {
+  /* Tema oscuro */
+  --primary-color: #3b82f6;
+  --primary-color-dark: #1d4ed8;
+  --secondary-color: #a78bfa;
+  --success-color: #34d399;
+  --info-color: #60a5fa;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+  --background-color: #0f172a;
+  --card-background: #1e293b;
+  --text-color: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --code-background: #1e293b;
 }
 
 html, body {
@@ -17,8 +37,10 @@ html, body {
   padding: 0;
   background-color: var(--background-color);
   color: var(--text-color);
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', 'Roboto', sans-serif;
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  scroll-behavior: smooth;
 }
 
 .w-full {
@@ -27,13 +49,22 @@ html, body {
 
 /* Personalización de PrimeVue */
 .p-card {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
-  border-radius: 8px !important;
+  background-color: var(--card-background) !important;
+  color: var(--text-color) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 12px !important;
+  transition: all 0.3s ease;
+  border: 1px solid var(--border-color);
+}
+
+.dark-theme .p-card {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3) !important;
 }
 
 .p-card .p-card-title {
-  color: var(--primary-color) !important;
+  color: var(--text-color) !important;
   font-size: 1.5rem !important;
+  font-weight: 700 !important;
 }
 
 .p-card .p-card-subtitle {
@@ -41,43 +72,150 @@ html, body {
 }
 
 .p-button {
-  border-radius: 4px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+}
+
+.p-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59, 130, 246, 0.2);
 }
 
 .p-tabview .p-tabview-nav {
   border-bottom: 1px solid var(--border-color) !important;
+  background-color: transparent !important;
 }
 
 .p-tabview .p-tabview-nav li .p-tabview-nav-link {
-  border-radius: 4px 4px 0 0 !important;
+  border-radius: 10px 10px 0 0 !important;
+  color: var(--text-secondary) !important;
+  background-color: transparent !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  color: var(--primary-color) !important;
+  border-bottom: 3px solid var(--primary-color) !important;
+  background-color: rgba(59, 130, 246, 0.1) !important;
 }
 
 .p-tabview .p-tabview-panels {
   padding: 1.5rem 0 !important;
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+  border: none !important;
+}
+
+.p-toast {
+  opacity: 0.98 !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.dark-theme .p-toast .p-toast-message {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border-left: 6px solid var(--primary-color) !important;
+}
+
+.p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+  font-weight: 600 !important;
+}
+
+.p-toast .p-toast-message .p-toast-message-content .p-toast-detail {
+  opacity: 0.8 !important;
+}
+
+.custom-textarea {
+  background-color: var(--card-background) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
+  transition: all 0.3s ease !important;
+}
+
+.custom-textarea:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25) !important;
+}
+
+.dark-theme .custom-textarea {
+  border-color: #334155 !important;
+}
+
+.dark-theme .custom-textarea:focus {
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.4) !important;
+}
+
+.p-badge {
+  border-radius: 20px !important;
+  padding: 0.25rem 0.75rem !important;
+}
+
+.p-tooltip {
+  opacity: 0.95 !important;
+}
+
+.dark-theme .p-tooltip .p-tooltip-text {
+  background-color: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #334155 !important;
+}
+
+.dark-theme kbd {
+  background-color: #334155 !important;
+  color: #f8fafc !important;
+  border-color: #475569 !important;
 }
 
 /* Animaciones */
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
 }
 
 .fade-in {
-  animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.4s ease-out;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .p-card .p-card-title {
-    font-size: 1.3rem !important;
-  }
-  
-  .actions {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .actions .p-button {
-    margin-bottom: 0.5rem;
-  }
+.float-in {
+  animation: floatIn 0.5s ease-out;
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+/* Gradientes animados */
+.animated-gradient {
+  background: linear-gradient(-45deg, #3b82f6, #8b5cf6, #ec4899, #3b82f6);
+  background-size: 400% 400%;
+  animation: gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50% }
+  50% { background-position: 100% 50% }
+  100% { background-position: 0% 50% }
+}
+
+/* Neumorfismo para el modo claro */
+.neumorphism {
+  box-shadow: 8px 8px 16px #e2e8f0, -8px -8px 16px #ffffff;
+}
+
+/* Estilo "glassmorphism" para el modo oscuro */
+.dark-theme .glassmorphic {
+  background: rgba(30, 41, 59, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
 }
