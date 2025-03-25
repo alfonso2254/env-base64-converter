@@ -31,9 +31,7 @@
 
 ## Demostración
 
-Para ver la herramienta en acción, visita [la demo online](#) (próximamente).
-
-![Captura de pantalla de la aplicación](./public/screenshot.png)
+Para ver la herramienta en acción, visita [la demo online]([#](https://env-base64-converter.vercel.app/) (próximamente).
 
 ## Instalación
 
