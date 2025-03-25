@@ -1,0 +1,83 @@
+:root {
+  --primary-color: #3f51b5;
+  --secondary-color: #f50057;
+  --success-color: #4caf50;
+  --info-color: #2196f3;
+  --warning-color: #ff9800;
+  --error-color: #f44336;
+  --background-color: #f5f7fa;
+  --card-background: #ffffff;
+  --text-color: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* Personalización de PrimeVue */
+.p-card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  border-radius: 8px !important;
+}
+
+.p-card .p-card-title {
+  color: var(--primary-color) !important;
+  font-size: 1.5rem !important;
+}
+
+.p-card .p-card-subtitle {
+  color: var(--text-secondary) !important;
+}
+
+.p-button {
+  border-radius: 4px !important;
+}
+
+.p-tabview .p-tabview-nav {
+  border-bottom: 1px solid var(--border-color) !important;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link {
+  border-radius: 4px 4px 0 0 !important;
+}
+
+.p-tabview .p-tabview-panels {
+  padding: 1.5rem 0 !important;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .p-card .p-card-title {
+    font-size: 1.3rem !important;
+  }
+  
+  .actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .actions .p-button {
+    margin-bottom: 0.5rem;
+  }
+}
