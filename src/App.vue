@@ -713,7 +713,7 @@ const encodeEnvToBase64 = () => {
         
         // Codificar a Base64
         const base64Value = btoa(cleanValue);
-        return `${key}:${base64Value}`;
+        return `${key}: ${base64Value}`;
       });
       
       base64Output.value = result.join('\n');
